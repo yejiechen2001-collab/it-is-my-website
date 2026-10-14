@@ -1,39 +1,609 @@
+:root {
+	color-scheme: light;
+	--ink: #202b27;
+	--muted: #63716a;
+	--green: #285542;
+	--green-deep: #1f4035;
+	--paper: #f4f6f1;
+	--line: #d9e1d9;
+	--accent: #bf674b;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
-color: gray;
-background: white;
-font-family: Verdana,Arial,Helvetica,sans-serif;
-margin-left: 10%;
-margin-right: 10%;
+	margin: 0;
+	color: var(--ink);
+	background: var(--paper);
+	font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+	line-height: 1.6;
 }
-h1 {
-color: #457926;
-font-family: Georgia,"Times New Roman",Times,serif;
-font-size: 2em;
-text-transform: uppercase;
-margin-left: -8%;
+
+a {
+	color: inherit;
 }
-h2 {
-color: #457926;
-font-family: Georgia,"Times New Roman",Times,serif;
-font-size: 1.7em;
-margin-left: -4%;
-margin-top: 2em;
-margin-bottom: 2em;
+
+.site-header,
+.site-footer {
+	width: min(100% - 64px, 1160px);
+	margin-inline: auto;
 }
-p {
-font-size: 1.2em;
-text-indent: 2em;
+
+.hero,
+.about-inner,
+.journal-inner {
+	width: min(100% - 64px, 760px);
+	margin-inline: auto;
 }
-blockquote {
-font-size: 1em;
-font-style: italic;
-color: black;
-background: red;
+
+.site-header {
+	min-height: 88px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+	border-bottom: 1px solid var(--line);
 }
-.first-line {
-font-weight: bold;
+
+.site-mark {
+	display: flex;
+	flex-direction: column;
+	color: var(--green-deep);
+	text-decoration: none;
+	line-height: 1.2;
 }
-#first {
-font-size: 1.4em;
-color: blue;
+
+.site-mark-name {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.site-mark-label,
+.site-nav a,
+.section-label,
+.eyebrow,
+.journal-count {
+	font-size: 0.78rem;
+	font-weight: 700;
+}
+
+.site-mark-label {
+	margin-top: 3px;
+	color: var(--muted);
+}
+
+.site-nav {
+	display: flex;
+	align-items: center;
+	gap: 36px;
+}
+
+.site-nav a {
+	color: var(--ink);
+	text-align: center;
+	text-decoration: none;
+	transition: color 160ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+	color: var(--accent);
+}
+
+.hero {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	gap: 38px;
+	padding-top: 76px;
+	padding-bottom: 88px;
+	text-align: center;
+}
+
+.hero-copy {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.eyebrow,
+.section-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	width: fit-content;
+	margin: 0 0 16px;
+	color: var(--accent);
+	text-transform: uppercase;
+}
+
+.eyebrow::before,
+.eyebrow::after,
+.section-label::before,
+.section-label::after {
+	width: 28px;
+	height: 1px;
+	background: var(--accent);
+	content: "";
+}
+
+.hero h1 {
+	margin: 0;
+	color: var(--green-deep);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 4rem;
+	font-weight: 400;
+	line-height: 1.04;
+	white-space: nowrap;
+}
+
+.hero h1 span {
+	display: inline;
+	font-style: italic;
+}
+
+.hero-tagline {
+	margin: 26px 0 8px;
+	color: var(--green);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.35rem;
+}
+
+.hero-description {
+	max-width: 390px;
+	margin: 0 auto;
+	color: var(--muted);
+	font-size: 1rem;
+}
+
+.hero-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 28px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid var(--accent);
+	color: var(--green-deep);
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.hero-link span {
+	color: var(--accent);
+	font-size: 1.2rem;
+}
+
+.about-section {
+	background: #e9f0e9;
+}
+
+.about-inner {
+	display: block;
+	padding-top: 64px;
+	padding-bottom: 68px;
+	text-align: center;
+}
+
+.about-inner .section-label {
+	margin: 0 auto 12px;
+	justify-content: center;
+}
+
+.about-story {
+	display: flow-root;
+}
+
+.about-inner h2,
+.journal-heading h2 {
+	margin: 0;
+	color: var(--green-deep);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 2.5rem;
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+.about-inner h2 {
+	margin-bottom: 14px;
+	font-size: 3rem;
+}
+
+.about-copy {
+	max-width: 650px;
+	margin: 0 auto;
+	color: #45544c;
+	font-size: 1.15rem;
+	text-align: center;
+}
+
+.journal-inner {
+	padding-top: 84px;
+	padding-bottom: 92px;
+}
+
+.journal-heading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 32px;
+	text-align: center;
+}
+
+.journal-heading > div {
+	width: 100%;
+}
+
+.journal-heading .section-label {
+	margin: 0 auto 12px;
+	justify-content: center;
+}
+
+.journal-heading h2 {
+	font-size: 3rem;
+}
+
+.journal-count {
+	margin: 0;
+	color: var(--muted);
+	line-height: 1.5;
+	text-align: center;
+}
+
+.journal-tools {
+	display: grid;
+	grid-template-columns: minmax(0, 540px);
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.journal-tools label {
+	color: var(--green-deep);
+	font-size: 0.84rem;
+	font-weight: 700;
+}
+
+.search-control {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	width: 100%;
+	border: 1px solid #aab9ad;
+	border-radius: 4px;
+	background: #fff;
+	transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.search-control:focus-within {
+	border-color: var(--green);
+	box-shadow: 0 0 0 3px rgb(40 85 66 / 14%);
+}
+
+.search-control input {
+	width: 100%;
+	min-width: 0;
+	padding: 13px 16px;
+	border: 0;
+	outline: 0;
+	color: var(--ink);
+	background: transparent;
+	font: inherit;
+	font-size: 1rem;
+}
+
+.search-control button {
+	padding: 8px 4px 8px 12px;
+	border: 0;
+	color: var(--green);
+	background: transparent;
+	font: inherit;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+.search-control button[hidden] {
+	display: none;
+}
+
+.search-status {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.week-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	justify-content: center;
+	gap: 14px;
+}
+
+.week-entry {
+	min-height: 0;
+	border: 1px solid var(--line);
+	border-top: 3px solid var(--green);
+	background: #fff;
+}
+
+.week-entry[hidden] {
+	display: none;
+}
+
+.more-weeks {
+	display: block;
+	margin: 24px auto 0;
+	padding: 10px 22px;
+	border: 1px solid var(--green);
+	border-radius: 3px;
+	color: var(--green);
+	background: transparent;
+	font: inherit;
+	font-size: 0.88rem;
+	cursor: pointer;
+	transition: background-color 160ms ease;
+}
+
+.more-weeks:hover,
+.more-weeks:focus-visible {
+	background: #e9f0e9;
+}
+
+.more-weeks[hidden] {
+	display: none;
+}
+
+.empty-search {
+	margin: 0;
+	padding: 24px;
+	border: 1px dashed var(--line);
+	color: var(--muted);
+	text-align: center;
+}
+
+.empty-search[hidden] {
+	display: none;
+}
+
+.week-toggle {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	min-height: 88px;
+	padding: 16px 20px;
+	cursor: pointer;
+	list-style: none;
+}
+
+.week-toggle::-webkit-details-marker {
+	display: none;
+}
+
+.week-toggle::after {
+	margin-left: auto;
+	color: var(--green);
+	content: "+";
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+.week-entry[open] .week-toggle::after {
+	content: "\2212";
+}
+
+.week-number {
+	display: grid;
+	flex: 0 0 2.25rem;
+	place-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	border: 1px solid #d8aa9d;
+	border-radius: 50%;
+	color: var(--accent);
+	font-size: 0.76rem;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+
+.week-entry h3 {
+	margin: 0;
+	color: var(--green-deep);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.35rem;
+	font-weight: 400;
+}
+
+.week-editor {
+	padding: 0 20px 20px;
+}
+
+.week-editor label {
+	display: block;
+	margin-bottom: 8px;
+	color: var(--muted);
+	font-size: 0.82rem;
+	font-weight: 700;
+}
+
+.week-editor textarea {
+	display: block;
+	width: 100%;
+	min-height: 140px;
+	padding: 12px;
+	border: 1px solid var(--line);
+	border-radius: 3px;
+	color: var(--ink);
+	background: #f8faf7;
+	font: inherit;
+	resize: vertical;
+}
+
+.week-editor textarea:focus-visible {
+	outline: 2px solid var(--green);
+	outline-offset: 2px;
+}
+
+.site-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+	padding-top: 22px;
+	padding-bottom: 26px;
+	border-top: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 0.8rem;
+}
+
+.site-footer a {
+	color: var(--green);
+	text-decoration: none;
+}
+
+@media (max-width: 760px) {
+	.site-header,
+	.hero,
+	.about-inner,
+	.journal-inner,
+	.site-footer {
+		width: min(100% - 40px, 560px);
+	}
+
+	.site-header {
+		min-height: 0;
+		flex-wrap: wrap;
+		gap: 18px;
+		padding-top: 20px;
+		padding-bottom: 18px;
+	}
+
+	.site-nav {
+		flex-wrap: wrap;
+		gap: 12px 22px;
+	}
+
+	.hero {
+		grid-template-columns: 1fr;
+		gap: 38px;
+		padding-top: 56px;
+		padding-bottom: 64px;
+	}
+
+	.hero h1 {
+		font-size: 3.4rem;
+	}
+
+	.about-inner {
+		padding-top: 48px;
+		padding-bottom: 52px;
+	}
+
+	.about-inner .section-label {
+		margin-bottom: 16px;
+	}
+
+	.journal-inner {
+		padding-top: 60px;
+		padding-bottom: 64px;
+	}
+
+	.week-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.journal-tools {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.search-status {
+		grid-column: auto;
+	}
+}
+
+@media (max-width: 460px) {
+	.site-header,
+	.hero,
+	.about-inner,
+	.journal-inner,
+	.site-footer {
+		width: min(100% - 32px, 400px);
+	}
+
+	.site-header {
+		align-items: start;
+	}
+
+	.site-nav {
+		width: 100%;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	.site-nav a {
+		font-size: 0.72rem;
+	}
+
+	.journal-tools {
+		grid-template-columns: 1fr;
+		gap: 8px;
+	}
+
+	.search-status {
+		grid-column: auto;
+	}
+
+	.hero {
+		gap: 30px;
+		padding-top: 44px;
+	}
+
+	.hero h1 {
+		font-size: 2.3rem;
+	}
+
+	.about-inner h2,
+	.journal-heading h2 {
+		font-size: 2.15rem;
+	}
+
+	.journal-heading {
+		align-items: center;
+		gap: 16px;
+		text-align: center;
+	}
+
+	.journal-count {
+		font-size: 0.65rem;
+	}
+
+	.week-grid {
+		gap: 10px;
+	}
+
+	.week-entry {
+		min-height: 0;
+	}
+
+	.week-toggle {
+		min-height: 76px;
+		padding: 14px;
+	}
+
+	.week-editor {
+		padding: 0 14px 14px;
+	}
+
+	.site-footer {
+		font-size: 0.72rem;
+	}
 }
