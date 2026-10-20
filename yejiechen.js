@@ -12,10 +12,9 @@ reflectionFields.forEach((field) => {
   const storageKey = `yejiechen-reflection-week-${field.dataset.week}`;
 
   try {
-    field.value = localStorage.getItem(storageKey) || "";
-  } catch {
-    field.value = "";
-  }
+    const savedReflection = localStorage.getItem(storageKey);
+    if (savedReflection) field.value = savedReflection;
+  } catch {}
 
   field.addEventListener("input", () => {
     try {
