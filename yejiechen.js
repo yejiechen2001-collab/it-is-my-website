@@ -5,20 +5,8 @@ const searchStatus = document.querySelector("#search-status");
 const emptyMessage = document.querySelector("#empty-search");
 const moreWeeksButton = document.querySelector("#more-weeks");
 const reflectionFields = Array.from(document.querySelectorAll(".week-editor textarea"));
-const journalSection = document.querySelector("#journal");
 const weeksPerPage = 4;
 let visibleWeekCount = weeksPerPage;
-
-document.querySelectorAll('a[href="#journal"]').forEach((link) => {
-  link.addEventListener("click", () => {
-    if (journalSection) journalSection.hidden = false;
-  });
-});
-
-if (journalSection && window.location.hash === "#journal") {
-  journalSection.hidden = false;
-  journalSection.scrollIntoView();
-}
 
 reflectionFields.forEach((field) => {
   const storageKey = `yejiechen-reflection-week-${field.dataset.week}`;
