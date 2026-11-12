@@ -154,9 +154,9 @@ a {
 
 .display-accent {
 	color: var(--accent);
-	font-family: "Apple Chancery", "URW Chancery L", "Segoe Script", cursive;
-	font-size: 1.08em;
-	font-style: normal;
+	font-family: inherit;
+	font-size: 1em;
+	font-style: italic;
 	font-weight: 400;
 }
 
@@ -444,10 +444,53 @@ a {
 
 .week-editor label {
 	display: block;
-	margin-bottom: 8px;
 	color: var(--muted);
 	font-size: 0.82rem;
 	font-weight: 700;
+}
+
+.reflection-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.reflection-read-button,
+.reflection-dialog-close {
+	padding: 7px 12px;
+	border: 1px solid var(--line);
+	border-radius: 3px;
+	color: var(--blue-deep);
+	background: #fff;
+	font: inherit;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+.reflection-read-button {
+	border-color: var(--blue);
+	color: #fff;
+	background: var(--blue);
+}
+
+.reflection-read-button:hover:not(:disabled) {
+	border-color: var(--blue-deep);
+	background: var(--blue-deep);
+}
+
+.reflection-read-button:disabled {
+	border-color: var(--line);
+	color: var(--muted);
+	background: var(--line);
+	cursor: not-allowed;
+}
+
+.reflection-read-button:focus-visible,
+.reflection-dialog-close:focus-visible {
+	outline: 2px solid var(--blue);
+	outline-offset: 2px;
 }
 
 .week-editor textarea {
@@ -466,6 +509,44 @@ a {
 .week-editor textarea:focus-visible {
 	outline: 2px solid var(--blue);
 	outline-offset: 2px;
+}
+
+.reflection-dialog {
+	width: min(42rem, calc(100vw - 32px));
+	max-height: 85vh;
+	padding: 24px;
+	border: 1px solid var(--line);
+	border-radius: 5px;
+	color: var(--ink);
+	background: #fff;
+	box-shadow: 0 18px 60px rgb(20 35 50 / 22%);
+}
+
+.reflection-dialog::backdrop {
+	background: rgb(20 35 50 / 48%);
+}
+
+.reflection-dialog-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+.reflection-dialog-header h2 {
+	margin: 0;
+	color: var(--blue-deep);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.reflection-dialog-content {
+	max-height: 65vh;
+	overflow-y: auto;
+	line-height: 1.7;
+	white-space: pre-wrap;
 }
 
 .site-footer {

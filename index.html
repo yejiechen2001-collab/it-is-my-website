@@ -104,17 +104,29 @@ As a student in the humanities and social sciences, I need to look beyond simply
             </div>
           </details>
           <details class="week-entry">
-            <summary class="week-toggle"><span class="week-number">05</span><h3>Week 5</h3></summary>
+            <summary class="week-toggle"><span class="week-number">05</span><h3>Week 5: Data visualisation</h3></summary>
             <div class="week-editor">
               <label for="week-5-reflection">Your reflection</label>
-              <textarea id="week-5-reflection" data-week="5" rows="5" placeholder="What did you learn this week?"></textarea>
+              <textarea id="week-5-reflection" data-week="5" rows="5" placeholder="What did you learn this week?">The Week 5 workshop introduced the theme of data visualisation. In the previous workshop, we learned about different methods of data collection. After completing the data collection task, I realised that raw datasets could be difficult to read, organise and check. This also made further data analysis more challenging. Therefore, I think data visualisation is an essential skill for conducting academic research.
+
+During this workshop, the tutor demonstrated how to use Excel to create different types of charts, making complex data easier to access, interpret and understand. I believe this is a valuable skill not only for academic research in the social sciences but also for future professional work.
+
+With the development of generative AI, we can also access more convenient and efficient data visualisation tools, including some open-source tools available on GitHub. However, I think it is still important to understand the fundamental principles and logic behind data visualisation rather than simply relying on these tools. Choosing an appropriate type of chart can make data clearer and help communicate findings more effectively.
+
+In conclusion, I did some additional practice after the workshop to improve my data visualisation skills. This included learning how to use visualisation tools correctly and how to select appropriate charts for different types of data. Through this practice, I hope to develop a better understanding of how to present and communicate data effectively.</textarea>
             </div>
           </details>
           <details class="week-entry">
-            <summary class="week-toggle"><span class="week-number">06</span><h3>Week 6</h3></summary>
+            <summary class="week-toggle"><span class="week-number">06</span><h3>Week 6: Identity, Algorithmic Identity, and Data</h3></summary>
             <div class="week-editor">
               <label for="week-6-reflection">Your reflection</label>
-              <textarea id="week-6-reflection" data-week="6" rows="5" placeholder="What did you learn this week?"></textarea>
+              <textarea id="week-6-reflection" data-week="6" rows="5" placeholder="What did you learn this week?">This week, we learned how algorithms work through input, process, and output. I think online shopping is a simple example. When I search for a product I want to buy, my search is the input. The website processes it by using its data to find products that match my interests. The results it shows me are the output. This process happens step by step and depends on the data available to the website.
+
+I think companies use our search data to improve their websites and make our online experience more convenient. However, this can also affect our privacy. For example, Google collects information about us to make personalised recommendations. I was surprised to learn that it may even collect information about things such as our jobs. It feels frightening to think that the internet may know so much about us. At the same time, sharing personal information online has become normal. We often have to accept many cookies before using apps or websites. It can feel as if we are exposed online because the internet may know a lot about us.
+
+This week, I also watched a short film called *The Shaky Line*. It tells a story about an older generation fighting against robots and artificial intelligence. At first, I thought it was a comedy. After watching it, I read the comments and saw that the director’s wife explained that the idea came from real life. This made me think about how technological development can improve productivity but also bring problems, such as job losses and ethical questions about AI.
+
+Recently, I also saw mathematicians express concern that AI is changing the nature of mathematical research. This made me wonder how we can balance technological progress with the needs of society. Can we learn from the First and Second Industrial Revolutions to guide the development of AI? I think this is something everyone should consider because AI is becoming part of everyday life. Earlier industrial revolutions mainly changed how people worked, while AI may also affect how we think and feel. We need to think carefully about how to develop and use it.</textarea>
             </div>
           </details>
           <details class="week-entry">
@@ -242,6 +254,14 @@ As a student in the humanities and social sciences, I need to look beyond simply
       </div>
     </section>
   </main>
+
+  <dialog class="reflection-dialog" id="reflection-dialog" aria-labelledby="reflection-dialog-title">
+    <div class="reflection-dialog-header">
+      <h2 id="reflection-dialog-title"></h2>
+      <button class="reflection-dialog-close" id="close-reflection-dialog" type="button">Close</button>
+    </div>
+    <div class="reflection-dialog-content" id="reflection-dialog-content"></div>
+  </dialog>
 
   <footer class="site-footer">
     <span>Yejie's learning journal</span>

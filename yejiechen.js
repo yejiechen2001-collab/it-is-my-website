@@ -23,6 +23,45 @@ reflectionFields.forEach((field) => {
   });
 });
 
+const reflectionDialog = document.querySelector("#reflection-dialog");
+const reflectionDialogTitle = document.querySelector("#reflection-dialog-title");
+const reflectionDialogContent = document.querySelector("#reflection-dialog-content");
+const closeReflectionDialogButton = document.querySelector("#close-reflection-dialog");
+
+if (reflectionDialog && reflectionDialogTitle && reflectionDialogContent && closeReflectionDialogButton) {
+  reflectionFields.forEach((field) => {
+    const label = document.querySelector(`label[for="${field.id}"]`);
+    const weekTitle = field.closest(".week-entry")?.querySelector("summary h3")?.textContent;
+    if (!label || !weekTitle) return;
+
+    const heading = document.createElement("div");
+    heading.className = "reflection-heading";
+    label.before(heading);
+    heading.append(label);
+
+    const readButton = document.createElement("button");
+    readButton.className = "reflection-read-button";
+    readButton.type = "button";
+    readButton.textContent = "Read full reflection";
+    readButton.disabled = field.value.trim().length === 0;
+    heading.append(readButton);
+
+    field.addEventListener("input", () => {
+      readButton.disabled = field.value.trim().length === 0;
+    });
+
+    readButton.addEventListener("click", () => {
+      reflectionDialogTitle.textContent = weekTitle;
+      reflectionDialogContent.textContent = field.value;
+      reflectionDialog.showModal();
+    });
+  });
+
+  closeReflectionDialogButton.addEventListener("click", () => {
+    reflectionDialog.close();
+  });
+}
+
 if (searchInput && clearButton && weekEntries.length && searchStatus && emptyMessage && moreWeeksButton) {
   function updateSearch() {
     const query = searchInput.value.trim().toLowerCase();
